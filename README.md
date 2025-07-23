@@ -1,9 +1,9 @@
 # Chat_bot
-🧠 ChatGPT Desktop App (Tkinter + OpenAI GPT-4o-mini)
+🧠 Chatbot Desktop App (Tkinter + OpenAI GPT-4o-mini)
 
 A beautiful, customizable AI chatbot built with Python, Tkinter, and CustomTkinter, using OpenAI's gpt-4o-mini model. This app provides a smooth desktop UI for chatting with GPT, complete with theme switching, scrolling chat history, loading animation, and exit confirmation.
 
-🚀 Features
+#🚀 Features
 
 ✅ Chat with GPT-4o-mini using OpenAI API
 
@@ -21,11 +21,15 @@ A beautiful, customizable AI chatbot built with Python, Tkinter, and CustomTkint
 
 ✅ Cleanly separated UI, threading, and API logic
 
-📷 Preview
+#📷 Preview
 
-(Add screenshots here if you'd like)
 
-🛠️ Requirements
+<img width="1919" height="975" alt="image" src="https://github.com/user-attachments/assets/3efed627-f97e-4d06-9c4c-a7df17a53451" />
+
+
+
+
+#🛠️ Requirements
 
 Python 3.8+
 
