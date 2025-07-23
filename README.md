@@ -26,6 +26,9 @@ A beautiful, customizable AI chatbot built with Python, Tkinter, and CustomTkint
 
 <img width="1919" height="975" alt="image" src="https://github.com/user-attachments/assets/3efed627-f97e-4d06-9c4c-a7df17a53451" />
 
+<img width="1919" height="993" alt="image" src="https://github.com/user-attachments/assets/4ce0369b-8ee9-4919-9a3f-2aef42588bd6" />
+
+
 
 
 
@@ -37,22 +40,16 @@ OpenAI Python SDK (openai)
 
 customtkinter
 
-Install with:
+#Install with:
 
-pip install openai customtkinter
+pip install openai,customtkinter
 
-🔑 Setup
-
-Clone this repo:
-
-git clone https://github.com/your-username/chatbot-desktop.git
-cd chatbot-desktop
-
+#🔑 Setup
 Create a config.py file in the same directory and add your OpenAI API key:
 
 api_key = "your-openai-api-key"
 
-🧺 Usage
+#🧺 Usage
 
 python your_script_name.py
 
@@ -62,13 +59,13 @@ Use the theme selector to switch between Light and Dark modes.
 
 Click EXIT to safely close the app.
 
-⚠️ Notes
+#⚠️ Notes
 
 Make sure your OpenAI account has access to the gpt-4o-mini model.
 
 If the app doesn't run in fullscreen, try maximizing the window manually or adjust the geometry() settings in the code.
 
-📄 License
+#📄 License
 
 This project is open-source under the MIT License.
 
