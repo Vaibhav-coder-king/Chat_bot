@@ -88,7 +88,7 @@ def main():
 	
 	#api key
 	if api_key=="":
-		messagebox.showerror(title="Error",message="Please Enter Your OpenAI API Key in config.txt file")
+		messagebox.showerror(title="Error",message="Please Enter Your OpenAI API Key in config.py file")
 		return
 	#just some setting
 	set_appearance_mode("light")
