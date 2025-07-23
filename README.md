@@ -28,8 +28,7 @@ A beautiful, customizable AI chatbot built with Python, Tkinter, and CustomTkint
 
 <img width="1919" height="993" alt="image" src="https://github.com/user-attachments/assets/4ce0369b-8ee9-4919-9a3f-2aef42588bd6" />
 
-
-
+<img width="1919" height="969" alt="image" src="https://github.com/user-attachments/assets/2baad93e-0c3f-4d98-83eb-d82bde8a172a" />
 
 
 #🛠️ Requirements
