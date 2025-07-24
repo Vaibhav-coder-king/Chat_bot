@@ -3,7 +3,7 @@ from tkinter import *
 from tkinter import messagebox 
 from customtkinter import *
 from threading import Thread
-from config import api_key
+
 def scroll_to_bottom():
 	try:
 		frm._parent_canvas.yview_moveto(1.0)
@@ -85,7 +85,15 @@ def change_theme(choice):
 
 def main():
 	global optionmenu,a,prompt,frm,prompt_button,api_key
-	
+
+	#load api key from config.txt
+	try:
+		with open(r"config.txt","r") as f:
+			api_key=f.read().strip()
+	except FileNotFoundError:
+		messagebox.showerror(title="Error",message="config.txt file not found!\nPlease create a config.txt file with your OpenAI API key.")
+		return
+		
 	#api key
 	if api_key=="":
 		messagebox.showerror(title="Error",message="Please Enter Your OpenAI API Key in config.py file")
@@ -129,11 +137,9 @@ def main():
 	#bind enter key to prompt_find
 	a.bind("<Return>",prompt_find_enter)
 
-
-
-
-
-
+	a.attributes("-fullscreen", True)  # Set the window to fullscreen mode
+	a.bind("<Escape>", lambda e: a.attributes("-fullscreen", False))  # Exit fullscreen
+	
 	a.mainloop()
 	
 if __name__=="__main__":
