@@ -44,9 +44,9 @@ customtkinter
 pip install openai,customtkinter
 
 #🔑 Setup
-Create a config.py file in the same directory and add your OpenAI API key:
+Create a config.txt file in the same directory and add your OpenAI API key:
 
-api_key = "your-openai-api-key"
+your-openai-api-key
 
 #🧺 Usage
 
