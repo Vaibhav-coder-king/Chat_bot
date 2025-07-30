@@ -4,6 +4,7 @@ from tkinter import messagebox
 from customtkinter import *
 from threading import Thread
 
+
 def scroll_to_bottom():
 	try:
 		frm._parent_canvas.yview_moveto(1.0)
@@ -63,11 +64,17 @@ def prompt_find():
 	
 	CTkLabel(frm,text="\nYou:",font=("Arial",30,"bold"),anchor="e",width=1300).pack()
 	
-	CTkLabel(frm,text=pp,font=("Arial",15,"bold"),width=1300,wraplength=1300,anchor="e").pack()
+	CTkLabel(frm,text=pp,font=("Arial",15,"bold"),width=1300,wraplength=1200,anchor="e").pack()
 	
 	CTkLabel(frm,text="\nChatbot:",font=("Arial",30,"bold"),anchor="w",width=1300).pack()
 	
-	CTkLabel(frm,text=result,font=("Arial",15,"bold"),anchor="w",width=1300,wraplength=1300).pack()
+	final_label=CTkLabel(frm,text="",font=("Arial",15,"bold"),anchor="w",width=1300,wraplength=1200)
+	final_label.pack()
+	for i in range(len(result)):
+		final_label.configure(text=result[:i+1])
+		frm.update_idletasks()
+		scroll_to_bottom()
+		a.after(10)
 	prompt.delete(0,END)
 	prompt_button.configure(state="active")
 	scroll_to_bottom()
@@ -81,6 +88,9 @@ def exit():
 def change_theme(choice):
 	optionmenu.set("Theme")
 	set_appearance_mode(choice)
+
+def trd_change_theme(ch):
+	Thread(target=change_theme, args=(ch,), daemon=True).start()
 	
 
 def main():
@@ -88,15 +98,15 @@ def main():
 
 	#load api key from config.txt
 	try:
-		with open(r"config.txt","r") as f:
+		with open(r"C:\Users\vaibhav chopra\Desktop\codes\Python_projects\chat bot\config.txt","r") as f:
 			api_key=f.read().strip()
 	except FileNotFoundError:
 		messagebox.showerror(title="Error",message="config.txt file not found!\nPlease create a config.txt file with your OpenAI API key.")
 		return
-		
+	
 	#api key
 	if api_key=="":
-		messagebox.showerror(title="Error",message="Please Enter Your OpenAI API Key in config.py file")
+		messagebox.showerror(title="Error",message="Please Enter Your OpenAI API Key in config.txt file")
 		return
 	#just some setting
 	set_appearance_mode("light")
@@ -110,7 +120,7 @@ def main():
 	#theme options 
 	options=["light","dark"]
 	
-	optionmenu=CTkOptionMenu(a,values=options,height=40,width=120,font=("Arial", 20),dropdown_font=("Arial", 20),command=change_theme,anchor="center",corner_radius=40)
+	optionmenu=CTkOptionMenu(a,values=options,height=40,width=120,font=("Arial", 20),dropdown_font=("Arial", 20),command=trd_change_theme,anchor="center",corner_radius=40)
 	
 	optionmenu.place(relx=0.01, rely=0.01)
 	
@@ -136,9 +146,6 @@ def main():
 
 	#bind enter key to prompt_find
 	a.bind("<Return>",prompt_find_enter)
-
-	a.attributes("-fullscreen", True)  # Set the window to fullscreen mode
-	a.bind("<Escape>", lambda e: a.attributes("-fullscreen", False))  # Exit fullscreen
 	
 	a.mainloop()
 	
