@@ -41,7 +41,10 @@ def get_response(input_p):
 		
 		
 def prompt_find_enter(event=None):
-	Thread(target=prompt_find,daemon=True).start()
+	if prompt_button._state=="disabled":
+		return
+	else:
+		Thread(target=prompt_find,daemon=True).start()
 
 #main_backend
 def prompt_find():
