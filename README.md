@@ -3,7 +3,7 @@
 
 A beautiful, customizable AI chatbot built with Python, Tkinter, and CustomTkinter, using OpenAI's gpt-4o-mini model. This app provides a smooth desktop UI for chatting with GPT, complete with theme switching, scrolling chat history, loading animation, and exit confirmation.
 
-#🚀 Features
+# 🚀 Features
 
 ✅ Chat with GPT-4o-mini using OpenAI API
 
@@ -21,7 +21,9 @@ A beautiful, customizable AI chatbot built with Python, Tkinter, and CustomTkint
 
 ✅ Cleanly separated UI, threading, and API logic
 
-#📷 Preview
+✅ Smooth animated typing effect for responses
+
+# 📷 Preview
 
 
 <img width="1919" height="975" alt="image" src="https://github.com/user-attachments/assets/3efed627-f97e-4d06-9c4c-a7df17a53451" />
@@ -31,7 +33,7 @@ A beautiful, customizable AI chatbot built with Python, Tkinter, and CustomTkint
 <img width="1919" height="969" alt="image" src="https://github.com/user-attachments/assets/2baad93e-0c3f-4d98-83eb-d82bde8a172a" />
 
 
-#🛠️ Requirements
+# 🛠️ Requirements
 
 Python 3.8+
 
@@ -43,12 +45,12 @@ customtkinter
 
 pip install openai,customtkinter
 
-#🔑 Setup
+# 🔑 Setup
 Create a config.txt file in the same directory and add your OpenAI API key:
 
 your-openai-api-key
 
-#🧺 Usage
+# 🧺 Usage
 
 python your_script_name.py
 
@@ -58,13 +60,16 @@ Use the theme selector to switch between Light and Dark modes.
 
 Click EXIT to safely close the app.
 
-#⚠️ Notes
+# ⚠️ Notes
 
 Make sure your OpenAI account has access to the gpt-4o-mini model.
 
 If the app doesn't run in fullscreen, try maximizing the window manually or adjust the geometry() settings in the code.
 
-#📄 License
+# 📄 License
 
 This project is open-source under the MIT License.
 
+# 🙋‍♂️ Author
+
+Made BY Vaibhav-coder-king
