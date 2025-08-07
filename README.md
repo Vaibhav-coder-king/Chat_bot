@@ -23,6 +23,8 @@ A beautiful, customizable AI chatbot built with Python, Tkinter, and CustomTkint
 
 ✅ Smooth animated typing effect for responses
 
+✅ remember the chat,like your name,age,etc
+
 # 📷 Preview
 
 
