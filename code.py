@@ -21,7 +21,7 @@ def load_dis():
 			load.configure(text="Loading"+'.'*j)
 			a.update()
 			a.after(500)
-	load.destroy()
+	a.after(0,load.destroy())
 		
 
 
@@ -30,11 +30,13 @@ def get_response(input_p):
 	try:
 		if input_p=="":
 			return "plz,input something!!"
-		r=client.chat.completions.create(
-		model="gpt-4o-mini",
-		messages=[{"role":"user","content":input_p}]
-		)
-		return r.choices[0].message.content.strip()
+		else:
+			#send the input to the OpenAI API and get the response
+			r=client.chat.completions.create(
+			model="gpt-4o-mini",
+			messages=[{"role":"user","content":all_data+",you:"+input_p+",chatbot:"}],
+			)
+			return r.choices[0].message.content.strip()
 		
 	except Exception as e:
 		return f"Error:{str(e)}"
@@ -62,7 +64,11 @@ def prompt_find():
 	pp=prompt.get()
 	
 	result=get_response(pp)
-	
+
+	# to add the input and response to the all_data
+	global all_data
+	all_data+=f"You: {pp},Chatbot: {result}"
+
 	load_st=False
 	
 	CTkLabel(frm,text="\nYou:",font=("Arial",30,"bold"),anchor="e",width=1300).pack()
@@ -73,6 +79,7 @@ def prompt_find():
 	
 	final_label=CTkLabel(frm,text="",font=("Arial",15,"bold"),anchor="w",width=1300,wraplength=1200)
 	final_label.pack()
+	
 	for i in range(len(result)):
 		final_label.configure(text=result[:i+1])
 		frm.update_idletasks()
@@ -97,7 +104,10 @@ def trd_change_theme(ch):
 	
 
 def main():
-	global optionmenu,a,prompt,frm,prompt_button,api_key
+	global optionmenu,a,prompt,frm,prompt_button,api_key,all_data
+
+	# to remember all data
+	all_data=""
 
 	#load api key from config.txt
 	try:
@@ -118,7 +128,7 @@ def main():
 	a=CTk()
 	a.title("chatbot")
 	a.geometry("1500x800")
-	a.resizable(True,False)
+	a.resizable(True,True)
 
 	#theme options 
 	options=["light","dark"]
@@ -146,6 +156,7 @@ def main():
 	#entry button 
 	prompt_button=CTkButton(a,text="↑",width=50,corner_radius=40,text_color="black",font=("Arial",30,"bold"),command=prompt_find_enter)
 	prompt_button.place(relx=0.93, rely=0.86, relwidth=0.05)
+	
 
 	#bind enter key to prompt_find
 	a.bind("<Return>",prompt_find_enter)
@@ -154,5 +165,3 @@ def main():
 	
 if __name__=="__main__":
 	main()
-
-	
