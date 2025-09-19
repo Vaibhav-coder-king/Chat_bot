@@ -43,7 +43,7 @@ def get_response(input_p):
 		
 		
 def prompt_find_enter(event=None):
-	if prompt_button._state=="disabled":
+	if prompt_button.cget("state")=="disabled":
 		return
 	else:
 		Thread(target=prompt_find,daemon=True).start()
@@ -62,6 +62,10 @@ def prompt_find():
 	Thread(target=load_dis,daemon=True).start()
 
 	pp=prompt.get()
+	prompt.delete(0,END)	
+	CTkLabel(frm,text="\nYou:",font=("Arial",30,"bold"),anchor="e",width=1300).pack()
+	
+	CTkLabel(frm,text=pp,font=("Arial",15,"bold"),width=1300,wraplength=1200,anchor="e").pack()
 	
 	result=get_response(pp)
 
@@ -71,9 +75,7 @@ def prompt_find():
 
 	load_st=False
 	
-	CTkLabel(frm,text="\nYou:",font=("Arial",30,"bold"),anchor="e",width=1300).pack()
 	
-	CTkLabel(frm,text=pp,font=("Arial",15,"bold"),width=1300,wraplength=1200,anchor="e").pack()
 	
 	CTkLabel(frm,text="\nChatbot:",font=("Arial",30,"bold"),anchor="w",width=1300).pack()
 	
@@ -85,7 +87,7 @@ def prompt_find():
 		frm.update_idletasks()
 		scroll_to_bottom()
 		a.after(10)
-	prompt.delete(0,END)
+
 	prompt_button.configure(state="active")
 	scroll_to_bottom()
 
@@ -165,4 +167,5 @@ def main():
 	
 if __name__=="__main__":
 	main()
+
 
