@@ -74,4 +74,4 @@ This project is open-source under the MIT License.
 
 # 🙋‍♂️ Author
 
-Made BY Vaibhav-coder-king
+Made BY [Vaibhav-coder-king](https://github.com/Vaibhav-coder-king)
