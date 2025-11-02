@@ -129,7 +129,7 @@ def main():
 	
 	a=CTk()
 	a.title("chatbot")
-	a.geometry("1500x800")
+	a.geometry(f"{a.winfo_screenwidth()}x{a.winfo_screenheight()}+0+0")
 	a.resizable(True,True)
 
 	#theme options 
@@ -167,5 +167,6 @@ def main():
 	
 if __name__=="__main__":
 	main()
+
 
 
